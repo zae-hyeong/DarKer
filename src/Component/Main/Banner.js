@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Banner.css";
+import { BannerItem } from "../../public/class";
 import bannerImg1 from "../../public/image/banner/banner-img1.jpg";
 import bannerImg2 from "../../public/image/banner/banner-img2.jpg";
 import bannerImg3 from "../../public/image/banner/banner-img3.jpg";
@@ -8,14 +9,6 @@ import bannerImg5 from "../../public/image/banner/banner-img5.jpg";
 import BannerWindow from "./BannerWindow";
 
 const Banner = () => {
-  class BannerItem {
-    constructor(id, img, comment) {
-      this.bannerId = id;
-      this.bannerImg = img;
-      this.bannerComment = comment;
-    }
-  }
-
   const [bannerOrder, setBannerOrder] = useState(0);
 
   const banners = [

@@ -1,0 +1,69 @@
+.login-wrapper {
+  width: 100%;
+  height: calc(100vh - 80px - 400px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-label {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+}
+
+#login-form > input {
+  width: 100%;
+  padding: 0.4rem;
+  box-sizing: border-box;
+}
+
+#id-input {
+  margin-bottom: 1rem;
+}
+
+#login-detail {
+  width: 100%;
+  position: relative;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+#find-wrapper {
+  position: absolute;
+  right: 50%;
+  bottom: 0%;
+  transform: translateX(50%);
+  display: flex;
+}
+
+#find-id::after {
+  content: '';
+  flex-grow: 1;
+  background-color: white;
+  height: 0.6rem;
+  width: 1px;
+  margin: 0px 10px;
+  display: inline-block;
+  line-height: 1rem;
+}
+
+#id-input, #pw-input {
+  width: 100%;
+}
+
+.signup {
+  float: left;
+}
+
+#save-id-wrapper {
+  float: right;
+}

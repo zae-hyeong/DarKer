@@ -29,8 +29,8 @@ const Header = (props) => {
         </a>
       </div>
       <ul className="header-menu-list">
-        <li value={1} className="header-menu-item" onClick={navSelectHandler}>회원가입</li>
-        <li value={2} className="header-menu-item" onClick={navSelectHandler}>로그인</li>
+        <li value={2} className="header-menu-item" onClick={navSelectHandler}>회원가입</li>
+        <li value={1} className="header-menu-item" onClick={navSelectHandler}>로그인</li>
         <li value={0} className="header-menu-item" onClick={navSelectHandler}>주문조회</li>
       </ul>
     </header>

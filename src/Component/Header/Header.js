@@ -1,9 +1,13 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../public/image/logo.png";
-import menuIcon from "../../public/icon/hamburger-menu-icon.svg";
 
-const Header = () => {
+const Header = (props) => {
+
+  const navSelectHandler = (e) => {
+    props.navSelect(e.target.value);
+  }
+  
   return (
     <header className="header">
       <div className="header-menu-button">
@@ -14,9 +18,9 @@ const Header = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M5 7H19" stroke="white" stroke-linecap="round" />
-          <path d="M5 12H19" stroke="white" stroke-linecap="round" />
-          <path d="M5 17H19" stroke="white" stroke-linecap="round" />
+          <path d="M5 7H19" stroke="white" strokeLinecap="round" />
+          <path d="M5 12H19" stroke="white" strokeLinecap="round" />
+          <path d="M5 17H19" stroke="white" strokeLinecap="round" />
         </svg>
       </div>
       <div className="header-logo-wrapper">
@@ -25,9 +29,9 @@ const Header = () => {
         </a>
       </div>
       <ul className="header-menu-list">
-        <a href="#"><li className="header-menu-item">회원가입</li></a>
-        <a href="#"><li className="header-menu-item">로그인</li></a>
-        <a href="#"><li className="header-menu-item">주문조회</li></a>
+        <li value={1} className="header-menu-item" onClick={navSelectHandler}>회원가입</li>
+        <li value={2} className="header-menu-item" onClick={navSelectHandler}>로그인</li>
+        <li value={0} className="header-menu-item" onClick={navSelectHandler}>주문조회</li>
       </ul>
     </header>
   );

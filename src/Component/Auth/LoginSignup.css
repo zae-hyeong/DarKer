@@ -1,4 +1,5 @@
-.login-wrapper {
+.login-wrapper,
+.signup-wrapper {
   width: 100%;
   height: calc(100vh - 80px - 400px);
   display: flex;
@@ -6,12 +7,8 @@
   align-items: center;
 }
 
-.login-form-label {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-#login-form {
+#login-form,
+#signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,10 +17,18 @@
   width: 500px;
 }
 
-#login-form > input {
+.login-form-label,
+.signup-form-label {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#login-form > input,
+.signup-input-wrapper input {
   width: 100%;
   padding: 0.4rem;
   box-sizing: border-box;
+  margin-bottom: 0.8rem;
 }
 
 #id-input {
@@ -46,7 +51,7 @@
 }
 
 #find-id::after {
-  content: '';
+  content: "";
   flex-grow: 1;
   background-color: white;
   height: 0.6rem;
@@ -56,7 +61,8 @@
   line-height: 1rem;
 }
 
-#id-input, #pw-input {
+#id-input,
+#pw-input {
   width: 100%;
 }
 
@@ -66,4 +72,32 @@
 
 #save-id-wrapper {
   float: right;
+}
+
+.signup-input-wrapper {
+  display: flex;
+  width: 100%;
+}
+.signup-input-wrapper > label {
+  width: 27%;
+  text-align: start;
+  margin-right: 3%;
+}
+
+.signup-input-wrapper > input {
+  width: 70%;
+}
+
+.signup-input-wrapper > label::before {
+  content: "·";
+  font-size: large;
+  color: red;
+  margin-right: 10%;
+}
+
+#signup-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 0.5rem;
 }

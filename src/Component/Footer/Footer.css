@@ -43,3 +43,21 @@
 .footer-copyright {
   font-size: 0.7rem;
 }
+
+@media (max-height: 1000px) {
+  .footer{
+    height: 200px;
+    padding: 1.2rem 1.3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer-left-info, .footer-right-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .footer-center-info {
+    flex-grow: 1;
+  }
+}

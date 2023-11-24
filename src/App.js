@@ -5,6 +5,7 @@ import Header from "./Component/Header/Header";
 import Main from "./Component/Main/Main";
 import Login from "./Component/Auth/Login";
 import Signup from "./Component/Auth/Signup";
+import Cart from "./Component/Cart/Cart";
 
 function App() {
   const [pageSelect, setPageSelect] = useState(0);
@@ -19,6 +20,8 @@ function App() {
     <div className="App">
       <Header navSelect={navSelector}/>
       {pageSelect === 0 ? <Main /> : pageSelect === 1 ? <Login /> : <Signup />}
+      <aside className=''></aside>
+      <Cart />
       <Footer />
     </div>
   );

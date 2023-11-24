@@ -4,12 +4,14 @@
   background-color: black;
   border-bottom: 1px white solid;
   position: sticky;
+  top: 0;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   padding: 0px 20px;
+  z-index: 1000;
 }
 
 .header-menu-button {

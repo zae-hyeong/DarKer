@@ -1,0 +1,40 @@
+.aside-bg {
+  background-color: #00000099;
+
+  width: 100vw;
+  height: calc(100vh - 80px);
+  position: fixed;
+  top: 80px;
+  z-index: 500;
+  transition: opacity 0.8s;
+}
+.aside-bg.deactive {
+  opacity: 0;
+}
+
+.cart-wrapper {
+  width: 60vw;
+  height: calc(100vh - 80px);
+  background-color: #fff;
+  opacity: 1;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  transition: right 0.8s;
+  z-index: 700;
+}
+.cart-wrapper.deactive {
+  right: -70%;
+}
+
+.cart-product-img {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+.cart-product-name {
+  font-size: 2rem;
+  color: black;
+}
+

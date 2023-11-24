@@ -34,6 +34,10 @@ body {
   background-color: black;
   color: white;
 	font-family: 'Nanum Myeongjo', serif;
+	position: relative;
+}
+body::-webkit-scrollbar{
+  display:none;
 }
 
 ol, ul {

@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import "./Cart.css";
-import exImg from "../../public/image/item-img-ex.jpg";
+import CartItem from "./CartItem";
+import CartHeader from "./CartHeader";
+import CartFooter from "./CartFooter";
 
 const Cart = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [isAsideActive, setIsAsideActive] = useState(true);
 
   return (
     <>
-      <aside className={isActive ? "cart-wrapper" : "cart-wrapper deactive"}>
+      <aside
+        className={isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"}
+      >
+        <CartHeader />
         {/* Todo : add deactive button on top */}
-        <ol>
-          <li>
-            <img className="cart-product-img" src={exImg} alt="product image" />
-            
-            <h3 className="cart-product-name">Product Title</h3>
-            <div className="cart-product-details"></div>
-            {/* todo : 총합 계산 등 */}
-          </li>
+        <ol className="cart-product-list">
+          <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
         </ol>
+        <CartFooter />
       </aside>
-      <div className={isActive ? "aside-bg" : "aside-bg deactive"}></div>
+      <div className={isAsideActive ? "aside-bg" : "aside-bg deactive"}></div>
     </>
   );
 };

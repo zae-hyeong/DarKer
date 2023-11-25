@@ -20,21 +20,24 @@
   position: fixed;
   top: 80px;
   right: 0;
+  overflow: auto;
+
   transition: right 0.8s;
   z-index: 700;
+  padding: 10px 16px;
 }
 .cart-wrapper.deactive {
-  right: -70%;
+  right: -60vw;
+}
+.cart-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
-.cart-product-img {
-  width: 200px;
-  height: 200px;
-  float: left;
-}
 
-.cart-product-name {
-  font-size: 2rem;
-  color: black;
+.cart-product-list {
+  position: relative;
+  overflow-y: scroll;
 }
-
+.cart-product-list::-webkit-scrollbar{
+  display: none;
+}

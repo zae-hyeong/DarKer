@@ -8,7 +8,7 @@ import Signup from "./Component/Auth/Signup";
 import Cart from "./Component/Cart/Cart";
 
 function App() {
-  const [pageSelect, setPageSelect] = useState(0);
+  const [pageSelect, setPageSelect] = useState(1);
   const [isAsideActive, setIsAsideActive] = useState(false);
 
   const asideActiveHandler = (isActive) => {

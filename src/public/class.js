@@ -14,5 +14,25 @@ export class MainProductList {
 }
 
 export class Product {
-  constructor() {}
+  constructor(productId, productImg, productName, productPrice, sellingPrice, deleveryFee) {
+    this.productId = productId;
+    this.productImg = productImg;
+    this.productName = productName;
+    this.productPrice = productPrice;
+    this.sellingPrice = sellingPrice;
+    this.deleveryFee = deleveryFee;
+
+    this.option = {
+      size: ['XL', 'L', 'M', 'S', 'XS'],
+      color: ['gray','black', 'white']
+    }
+  }
+}
+export class cart {
+  constructor(productId, amount, deleveryFee, productPrice) {
+    this.productId = productId;
+    this.amount = amount;
+    this.deleveryFee = deleveryFee;
+    this.productPrice = productPrice;
+  }
 }

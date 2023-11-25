@@ -22,7 +22,9 @@ const ProductItem = () => {
             <span className="product-discounted-price">19000</span>
           </div>
         </div>
-        <img className='add-cart-btn' src={cartIcon} alt="add on cart" />
+        <button className='add-cart-btn' >
+          <img className='add-cart-icon' src={cartIcon} alt="add on cart" />
+        </button>
       </div>
       
     </li>

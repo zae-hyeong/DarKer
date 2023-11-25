@@ -9,19 +9,21 @@ import Cart from "./Component/Cart/Cart";
 
 function App() {
   const [pageSelect, setPageSelect] = useState(0);
+  const [isAsideActive, setIsAsideActive] = useState(false);
 
-  console.log(pageSelect);
+  const asideActiveHandler = (isActive) => {
+    setIsAsideActive(isActive);
+  }
 
-  const navSelector = (navNum) => {
-    setPageSelect(navNum);
+  const navSelectHandler = (navNum) => {
+    setPageSelect(Number(navNum));
   }
 
   return (
     <div className="App">
-      <Header navSelect={navSelector}/>
-      {pageSelect === 0 ? <Main /> : pageSelect === 1 ? <Login /> : <Signup />}
-      <aside className=''></aside>
-      <Cart />
+      <Header onNavSelect={navSelectHandler} onAsideActive={asideActiveHandler}/>
+      {pageSelect === 1 ? <Main /> : pageSelect === 2 ? <Login /> : <Signup />}
+      <Cart isAsideActive={isAsideActive} onAsideActive={asideActiveHandler}/>
       <Footer />
     </div>
   );

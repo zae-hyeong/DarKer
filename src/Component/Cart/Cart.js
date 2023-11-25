@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
 import CartHeader from "./CartHeader";
 import CartFooter from "./CartFooter";
 
-const Cart = () => {
-  const [isAsideActive, setIsAsideActive] = useState(true);
+const Cart = (props) => {
 
+  const deactiveHandler = () => {
+    props.onAsideActive(false);
+  }
   return (
     <>
       <aside
-        className={isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"}
+        className={props.isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"}
       >
-        <CartHeader />
-        {/* Todo : add deactive button on top */}
+        <CartHeader deactiveHandler={deactiveHandler}/>
         <ol className="cart-product-list">
           <CartItem />
           <CartItem />
@@ -24,7 +25,7 @@ const Cart = () => {
         </ol>
         <CartFooter />
       </aside>
-      <div className={isAsideActive ? "aside-bg" : "aside-bg deactive"}></div>
+      <div className={props.isAsideActive ? "aside-bg" : "aside-bg deactive"} onClick={deactiveHandler}></div>
     </>
   );
 };

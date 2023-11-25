@@ -6,10 +6,11 @@
   position: fixed;
   top: 80px;
   z-index: 500;
-  transition: opacity 0.8s;
+  transition: all 0.8s;
 }
 .aside-bg.deactive {
   opacity: 0;
+  z-index: -500;
 }
 
 .cart-wrapper {

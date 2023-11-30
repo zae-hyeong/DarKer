@@ -14,7 +14,7 @@ export class MainProductList {
 }
 
 export class Product {
-  constructor(productId, productImg, productName, productPrice, sellingPrice, deleveryFee) {
+  constructor({productId, productImg, productName, productPrice, sellingPrice, deleveryFee}) {
     this.productId = productId;
     this.productImg = productImg;
     this.productName = productName;

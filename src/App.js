@@ -6,6 +6,7 @@ import Main from "./Component/Main/Main";
 import Login from "./Component/Auth/Login";
 import Signup from "./Component/Auth/Signup";
 import Cart from "./Component/Cart/Cart";
+import ProductDetail from "./Component/Product/ProductDetail";
 
 function App() {
   const [pageSelect, setPageSelect] = useState(1);
@@ -22,7 +23,8 @@ function App() {
   return (
     <div className="App">
       <Header onNavSelect={navSelectHandler} onAsideActive={asideActiveHandler}/>
-      {pageSelect === 1 ? <Main /> : pageSelect === 2 ? <Login /> : <Signup />}
+      {/* {pageSelect === 1 ? <Main /> : pageSelect === 2 ? <Login /> : <Signup />} */}
+      <ProductDetail />
       <Cart isAsideActive={isAsideActive} onAsideActive={asideActiveHandler}/>
       <Footer />
     </div>

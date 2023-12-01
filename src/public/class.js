@@ -14,7 +14,7 @@ export class MainProductList {
 }
 
 export class Product {
-  constructor({productId, productImg, productName, productPrice, sellingPrice, deleveryFee}) {
+  constructor({productId, productImg, productName, productPrice, sellingPrice, deleveryFee, option}) {
     this.productId = productId;
     this.productImg = productImg;
     this.productName = productName;
@@ -22,7 +22,7 @@ export class Product {
     this.sellingPrice = sellingPrice;
     this.deleveryFee = deleveryFee;
 
-    this.option = {
+    this.option = option || {
       size: ['XL', 'L', 'M', 'S', 'XS'],
       color: ['gray','black', 'white']
     }

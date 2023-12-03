@@ -28,11 +28,13 @@ export class Product {
     }
   }
 }
-export class cart {
-  constructor(productId, amount, deleveryFee, productPrice) {
+export class CartItem {
+  constructor({productId, productImg, productName, amount, deleveryFee, productPrice}) {
     this.productId = productId;
+    this.productImg = productImg;
+    this.productName = productName;
+    this.productPrice = productPrice;
     this.amount = amount;
     this.deleveryFee = deleveryFee;
-    this.productPrice = productPrice;
   }
 }

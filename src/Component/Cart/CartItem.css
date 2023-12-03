@@ -17,7 +17,10 @@
 .cart-product-details {
   flex: 1;
   padding: 8px 12px;
+  color: black;
+  font-size: 0.8rem;
 }
+
 
 .cart-delete-product{ 
   width: 12px;

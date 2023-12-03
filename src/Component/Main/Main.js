@@ -1,7 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
 import HomeProductList from "./HomeProductList";
-import ProductDetail from "../../Component/Product/ProductDetail";
 import { Product } from "../../public/class";
 
 import b0img1 from "../../public/image/productExample1/peb0.jpg";

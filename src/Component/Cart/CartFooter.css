@@ -8,10 +8,9 @@
 
 .cart-footer {
   width: 100%;
-
   color: black;
-  height: 120px;
   background-color: white;
+  padding: 1rem 0rem;
 }
 
 .cart-price-info {

@@ -7,7 +7,9 @@ const Header = (props) => {
     props.onNavSelect(e.target.value);
   };
 
-  const asideActiveHandler = props.onAsideActive;
+  const asideActiveHandler = ()=> {
+    props.onAsideActive((isActive) => !isActive)
+  };
 
   return (
     <header className="header">

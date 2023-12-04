@@ -26,7 +26,7 @@ const Cart = (props) => {
         <CartHeader deactiveHandler={deactiveHandler} />
         <ol className="cart-product-list">
           {cartList.length === 0 ? (
-            <div>아이템이 없습니다</div>
+            <div className="empty-cart-notice">아이템이 없습니다</div>
           ) : (
             cartList.map((cartItem) => <CartItem cartItem={cartItem} />)
           )}

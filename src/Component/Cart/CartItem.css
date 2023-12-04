@@ -10,15 +10,17 @@
 }
 
 .cart-product-name {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
+  margin-bottom: 0.8rem;
 }
 
 .cart-product-details {
   flex: 1;
   padding: 8px 12px;
   color: black;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
 }
 
 

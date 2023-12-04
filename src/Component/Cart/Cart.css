@@ -25,7 +25,7 @@
 
   transition: right 0.8s;
   z-index: 700;
-  padding: 10px 16px;
+  padding: 0px 1.5rem;
 }
 .cart-wrapper.deactive {
   right: -60vw;
@@ -34,11 +34,19 @@
   display: none;
 }
 
+.empty-cart-notice {
+  border: solid 0.8px black;
+  padding: 40px;
+  color: black;
+  margin: 2rem 0rem;
+  text-align: center;
+  font-weight: bold;
+}
 
 .cart-product-list {
   position: relative;
   overflow-y: scroll;
 }
-.cart-product-list::-webkit-scrollbar{
+.cart-product-list::-webkit-scrollbar {
   display: none;
 }

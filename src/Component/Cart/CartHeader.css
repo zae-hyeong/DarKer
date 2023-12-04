@@ -3,9 +3,8 @@
   height: 120px;
   position: sticky;
   top: 0;
-  position: sticky;
-  top: 0;
   z-index: 750;
+  background-color: white;
 }
 
 .cart-header-title {

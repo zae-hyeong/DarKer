@@ -12,6 +12,11 @@ const ProductItem = (props) => {
     props.onSelectProduct(product);
   };
 
+  const addCartHandler = (e) => {
+    props.onAddCart(product);
+    e.stopPropagation();
+  }
+
   return (
     <li
       className="product-item"
@@ -33,7 +38,7 @@ const ProductItem = (props) => {
             </span>
           </div>
         </div>
-        <button className="add-cart-btn">
+        <button className="add-cart-btn" onClick={addCartHandler}>
           <img className="add-cart-icon" src={cartIcon} alt="add on cart" />
         </button>
       </div>

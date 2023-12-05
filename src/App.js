@@ -62,6 +62,7 @@ function App() {
         <Main
           onNavSelect={navSelectHandler}
           onSelectProduct={productSelectHandler}
+          onAddCart={addCartHandler}
         />
       ) : pageSelect === 2 ? (
         <Login />

@@ -12,7 +12,7 @@ const ProductDetail = (props) => {
     <div className="product-detail-wrapper">
       <div className="product-detail-images">
         {product.productImg.map((img) => (
-          <img src={img} alt="product image" />
+          <img src={img} alt="product" />
         ))}
       </div>
       <div className="product-detail-information-wrapper">

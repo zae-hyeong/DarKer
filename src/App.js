@@ -8,24 +8,17 @@ import Signup from "./Component/Auth/Signup";
 import Cart from "./Component/Cart/Cart";
 import ProductDetail from "./Component/Product/ProductDetail";
 import { CartItem } from "./public/class";
+import { nav_index } from "./store/nav";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [pageSelect, setPageSelect] = useState(1);
-  const [isAsideActive, setIsAsideActive] = useState(false);
-  const [product, setProduct] = useState(null);
+  const pageSelect = useSelector(state => state.navControl.pageIdx);
+  const isAsideActive = useSelector(state => state.navControl.isAsideActive);
 
+  const [product, setProduct] = useState(null);
   const [cartList, setCartList] = useState([]);
 
-  const asideActiveHandler = (isActive) => {
-    setIsAsideActive(isActive);
-  };
-
-  const navSelectHandler = (navNum) => {
-    setPageSelect(Number(navNum));
-  };
-
   const productSelectHandler = (productData) => {
-    console.log(productData);
     setProduct(productData);
   };
 
@@ -33,7 +26,6 @@ function App() {
     const productIndex = cartList.findIndex(
       (element) => element.productId === newProduct.productId
     );
-    console.log(JSON.stringify(productIndex));
     if (productIndex === -1) {
       setCartList((prevCartList) => [
         new CartItem({
@@ -53,28 +45,25 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        onNavSelect={navSelectHandler}
-        onAsideActive={asideActiveHandler}
-      />
+      <Header />
 
-      {pageSelect === 1 ? (
+      {pageSelect === nav_index.MAIN_PAGE ? (
         <Main
-          onNavSelect={navSelectHandler}
           onSelectProduct={productSelectHandler}
           onAddCart={addCartHandler}
         />
-      ) : pageSelect === 2 ? (
+      ) : pageSelect === nav_index.LOGIN_PAGE ? (
         <Login />
-      ) : pageSelect === 3 ? (
+      ) : pageSelect === nav_index.SIGNUP_PAGE ? (
         <Signup />
       ) : (
         <ProductDetail selectedProduct={product} onAddCart={addCartHandler} />
       )}
+
       <Cart
         cartList={cartList}
         isAsideActive={isAsideActive}
-        onAsideActive={asideActiveHandler}
+        // onAsideActive={asideActiveHandler}
       />
       <Footer />
     </div>

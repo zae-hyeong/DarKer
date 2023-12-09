@@ -3,11 +3,17 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 import CartHeader from "./CartHeader";
 import CartFooter from "./CartFooter";
+import { useDispatch, useSelector } from 'react-redux'
+import { navActions } from "../../store/nav";
 
 const Cart = (props) => {
+  const navDispatch = useDispatch();
+  
   const deactiveHandler = () => {
-    props.onAsideActive(false);
+    navDispatch(navActions.setAside());
   };
+
+  const isAsideActive = useSelector(state => state.navControl.isAsideActive);
 
   const cartList = props.cartList;
 
@@ -20,7 +26,7 @@ const Cart = (props) => {
     <>
       <aside
         className={
-          props.isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"
+          isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"
         }
       >
         <CartHeader deactiveHandler={deactiveHandler} />
@@ -34,7 +40,7 @@ const Cart = (props) => {
         <CartFooter totalPrice={totalPrice}/>
       </aside>
       <div
-        className={props.isAsideActive ? "aside-bg" : "aside-bg deactive"}
+        className={isAsideActive ? "aside-bg" : "aside-bg deactive"}
         onClick={deactiveHandler}
       ></div>
     </>

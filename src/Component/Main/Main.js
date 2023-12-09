@@ -62,46 +62,27 @@ const Main = (props) => {
     }),
   ];
 
+
+
   return (
-    <>
+    <main>
       <Banner />
       <HomeProductList
         productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
         onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
         />
       <HomeProductList
         productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
         onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
       />
       <HomeProductList
         productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
         onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
       />
-      <HomeProductList
-        productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
-        onSelectProduct={props.onSelectProduct}
-        onAddCart={props.onAddCart}
-      />
-      <HomeProductList
-        productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
-        onSelectProduct={props.onSelectProduct}
-        onAddCart={props.onAddCart}
-      />
-      <HomeProductList
-        productList={dummyProductList}
-        onNavSelect={props.onNavSelect}
-        onSelectProduct={props.onSelectProduct}
-        onAddCart={props.onAddCart}
-      />
-    </>
+    </main>
   );
 };
 

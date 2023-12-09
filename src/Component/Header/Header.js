@@ -1,14 +1,17 @@
 import React from "react";
 import "./Header.css";
+import { nav_index, navActions } from "../../store/nav";
+import { useDispatch } from "react-redux";
 
-const Header = (props) => {
+const Header = () => {
+  const navDispatch = useDispatch();
+
   const navSelectHandler = (e) => {
-    console.log(`eee: ${e.target.className}, ddd : ${e.target.value}`);
-    props.onNavSelect(e.target.value);
+    navDispatch(navActions.changeNav(Number(e.target.value)));
   };
 
-  const asideActiveHandler = ()=> {
-    props.onAsideActive((isActive) => !isActive)
+  const asideActiveHandler = () => {
+    navDispatch(navActions.setAside());
   };
 
   return (
@@ -30,15 +33,23 @@ const Header = (props) => {
         <input
           className="header-logo"
           type="button"
-          value={1}
+          value={nav_index.MAIN_PAGE}
           onClick={navSelectHandler}
         />
       </div>
       <ul className="header-menu-list">
-        <li value={3} className="header-menu-item" onClick={navSelectHandler}>
+        <li
+          value={nav_index.SIGNUP_PAGE}
+          className="header-menu-item"
+          onClick={navSelectHandler}
+        >
           회원가입
         </li>
-        <li value={2} className="header-menu-item" onClick={navSelectHandler}>
+        <li
+          value={nav_index.LOGIN_PAGE}
+          className="header-menu-item"
+          onClick={navSelectHandler}
+        >
           로그인
         </li>
         <li className="header-menu-item" onClick={asideActiveHandler}>

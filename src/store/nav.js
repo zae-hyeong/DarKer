@@ -4,24 +4,32 @@ export const nav_index = {
   MAIN_PAGE: 10000,
   LOGIN_PAGE: 10011,
   SIGNUP_PAGE: 10012,
-  PRODUECT_DETAIL_PAGE: 10020
-}
+  PRODUECT_DETAIL_PAGE: 10020,
+};
 
-const initialState = { 
+const initialState = {
   pageIdx: nav_index.MAIN_PAGE,
-  isAsideActive: false
+  isAsideActive: false,
+  selectedProduct: null,
 };
 
 const navSlice = createSlice({
-  name: 'navControl',
+  name: "navControl",
   initialState,
 
-	/* action.type은 reducer의 이름으로 자동으로 연결된다. */
+  /* action.type은 reducer의 이름으로 자동으로 연결된다. */
   reducers: {
-    changeNav(state, action) { state.pageIdx = action.payload },
-
-    setAside(state) { state.isAsideActive = !state.isAsideActive; }
-  }
+    changeNav(state, action) {
+      state.pageIdx = action.payload;
+    },
+    selectProduct(state, action) {
+      state.pageIdx = action.payload.pageIdx;
+      state.selectedProduct = action.payload.selectedProduct;
+    },
+    setAside(state) {
+      state.isAsideActive = !state.isAsideActive;
+    },
+  },
 });
 
 export const navActions = navSlice.actions;

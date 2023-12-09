@@ -12,8 +12,13 @@ const ProductItem = (props) => {
   const navDispatch = useDispatch();
 
   const productItemClickHandler = () => {
-    navDispatch(navActions.changeNav(nav_index.PRODUECT_DETAIL_PAGE));
-    props.onSelectProduct(product);
+    navDispatch(
+      navActions.selectProduct({
+        pageIdx: nav_index.PRODUECT_DETAIL_PAGE,
+        selectedProduct: product,
+      })
+    );
+    // props.onSelectProduct(product);
   };
 
   const addCartHandler = (e) => {

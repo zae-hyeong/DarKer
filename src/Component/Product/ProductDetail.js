@@ -1,8 +1,9 @@
 import React from "react";
 import "./ProductDetail.css";
+import { useSelector } from "react-redux";
 
 const ProductDetail = (props) => {
-  const product = props.selectedProduct;
+  const product = useSelector((state) => state.navControl.selectedProduct);
 
   const addCartHandler = () => {
     props.onAddCart(product);
@@ -55,7 +56,9 @@ const ProductDetail = (props) => {
 
         <div className="product-detail-buttons">
           <button className="add-cart">장바구니에 추가하기</button>
-          <button className="like-product" onClick={addCartHandler}>마음에 들어요</button>
+          <button className="like-product" onClick={addCartHandler}>
+            마음에 들어요
+          </button>
         </div>
       </div>
     </div>

@@ -12,15 +12,9 @@ import { nav_index } from "./store/nav";
 import { useSelector } from "react-redux";
 
 function App() {
-  const pageSelect = useSelector(state => state.navControl.pageIdx);
-  const isAsideActive = useSelector(state => state.navControl.isAsideActive);
+  const pageSelect = useSelector((state) => state.navControl.pageIdx);
 
-  const [product, setProduct] = useState(null);
   const [cartList, setCartList] = useState([]);
-
-  const productSelectHandler = (productData) => {
-    setProduct(productData);
-  };
 
   const addCartHandler = (newProduct) => {
     const productIndex = cartList.findIndex(
@@ -48,23 +42,16 @@ function App() {
       <Header />
 
       {pageSelect === nav_index.MAIN_PAGE ? (
-        <Main
-          onSelectProduct={productSelectHandler}
-          onAddCart={addCartHandler}
-        />
+        <Main onAddCart={addCartHandler} />
       ) : pageSelect === nav_index.LOGIN_PAGE ? (
         <Login />
       ) : pageSelect === nav_index.SIGNUP_PAGE ? (
         <Signup />
       ) : (
-        <ProductDetail selectedProduct={product} onAddCart={addCartHandler} />
+        <ProductDetail onAddCart={addCartHandler} />
       )}
 
-      <Cart
-        cartList={cartList}
-        isAsideActive={isAsideActive}
-        // onAsideActive={asideActiveHandler}
-      />
+      <Cart cartList={cartList} />
       <Footer />
     </div>
   );

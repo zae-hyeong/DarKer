@@ -69,17 +69,14 @@ const Main = (props) => {
       <Banner />
       <HomeProductList
         productList={dummyProductList}
-        onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
         />
       <HomeProductList
         productList={dummyProductList}
-        onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
       />
       <HomeProductList
         productList={dummyProductList}
-        onSelectProduct={props.onSelectProduct}
         onAddCart={props.onAddCart}
       />
     </main>

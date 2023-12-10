@@ -17,7 +17,6 @@ const navSlice = createSlice({
   name: "navControl",
   initialState,
 
-  /* action.type은 reducer의 이름으로 자동으로 연결된다. */
   reducers: {
     changeNav(state, action) {
       state.pageIdx = action.payload;

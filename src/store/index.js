@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import navReducer from "./nav";
 import cartReducer from "./cart";
 

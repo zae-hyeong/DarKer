@@ -6,12 +6,12 @@ import { useDispatch } from "react-redux";
 const Header = () => {
   const navDispatch = useDispatch();
 
-  const navSelectHandler = (e) => {
-    navDispatch(navActions.changeNav(Number(e.target.value)));
-  };
-
   const asideActiveHandler = () => {
     navDispatch(navActions.setAside());
+  };
+
+  const navSelectHandler = (e) => {
+    navDispatch(navActions.changeNav(Number(e.target.value)));
   };
 
   return (

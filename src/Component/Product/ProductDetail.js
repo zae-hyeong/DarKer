@@ -24,43 +24,46 @@ const ProductDetail = () => {
         <h2>{product.productName}</h2>
         <hr />
         <table className="product-detail-information-table">
-          <tr>
-            <th>가격</th>
-            <th>{product.productPrice}</th>
-          </tr>
-          <tr>
-            <th>판매가</th>
-            <th>{product.sellingPrice}</th>
-          </tr>
-          <tr>
-            <th>배송비</th>
-            <th>{product.deleveryFee}</th>
-          </tr>
-          <tr>
-            <th>사이즈</th>
-            <th>
-              <select name="size" id="product-size">
-                {product.option.size.map((size) => (
-                  <option value={size}>{size}</option>
-                ))}
-              </select>
-            </th>
-          </tr>
-          <tr>
-            <th>색</th>
-            <th>
-              <select name="color" id="product-color">
-                {product.option.color.map((color) => (
-                  <option value={color}>{color}</option>
-                ))}
-              </select>
-            </th>
-          </tr>
+          <thead></thead>
+          <tbody>
+            <tr>
+              <th>가격</th>
+              <th>{product.productPrice}</th>
+            </tr>
+            <tr>
+              <th>판매가</th>
+              <th>{product.sellingPrice}</th>
+            </tr>
+            <tr>
+              <th>배송비</th>
+              <th>{product.deleveryFee}</th>
+            </tr>
+            <tr>
+              <th>사이즈</th>
+              <th>
+                <select name="size" id="product-size">
+                  {product.option.size.map((size) => (
+                    <option value={size}>{size}</option>
+                  ))}
+                </select>
+              </th>
+            </tr>
+            <tr>
+              <th>색</th>
+              <th>
+                <select name="color" id="product-color">
+                  {product.option.color.map((color) => (
+                    <option value={color}>{color}</option>
+                  ))}
+                </select>
+              </th>
+            </tr>
+          </tbody>
         </table>
 
         <div className="product-detail-buttons">
-          <button className="add-cart">장바구니에 추가하기</button>
-          <button className="like-product" onClick={addCartHandler}>
+          <button className="add-cart" onClick={addCartHandler}>장바구니에 추가하기</button>
+          <button className="like-product">
             마음에 들어요
           </button>
         </div>

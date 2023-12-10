@@ -7,24 +7,20 @@ import { cartAction } from "../../store/cart";
 
 const ProductItem = (props) => {
   const isDiscounted = true; //임시로 설정한 값
-
   const product = props.product;
-
-  const navDispatch = useDispatch();
-  const cartDispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const productItemClickHandler = () => {
-    navDispatch(
+    dispatch(
       navActions.selectProduct({
         pageIdx: nav_index.PRODUECT_DETAIL_PAGE,
         selectedProduct: product,
       })
     );
-    // props.onSelectProduct(product);
   };
 
   const addCartHandler = (e) => {
-    cartDispatch(cartAction.addCart(product));
+    dispatch(cartAction.addCart(product));
     e.stopPropagation();
   };
 

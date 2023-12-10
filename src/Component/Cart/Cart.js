@@ -7,15 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { navActions } from "../../store/nav";
 
 const Cart = () => {
+  const isAsideActive = useSelector((state) => state.navControl.isAsideActive);
+  const cartList = useSelector((state) => state.cartControl.cartList);
   const navDispatch = useDispatch();
 
   const deactiveHandler = () => {
     navDispatch(navActions.setAside());
   };
-
-  const isAsideActive = useSelector((state) => state.navControl.isAsideActive);
-
-  const cartList = useSelector((state) => state.cartControl.cartList);
 
   let totalPrice = 0;
   for (let i = 0; i < cartList.length; i++) {

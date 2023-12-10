@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CartItem } from "../public/class";
 
 const initialState = {
-  cartList: []
+  cartList: [],
 };
 
 const cartSlice = createSlice({
@@ -24,11 +24,11 @@ const cartSlice = createSlice({
             productImg: action.payload.productImg,
             amount: 1,
           })
-        )
+        );
       } else {
         state.cartList[productIndex].amount += 1;
       }
-    }
+    },
   },
 });
 

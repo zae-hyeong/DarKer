@@ -15,7 +15,7 @@
   margin-bottom: 8px;
 }
 
-.product-detail-information-wrapper{
+.product-detail-information-wrapper {
   position: sticky;
   top: 35%;
   left: 60%;
@@ -29,7 +29,7 @@
   margin: 12px 0px;
 }
 
-.product-detail-information-table th{
+.product-detail-information-table th {
   padding: 8px 10px;
 }
 
@@ -54,13 +54,13 @@
 }
 
 .add-cart {
+  background-color: white;
+  border: white solid 1px;
+}
+
+.like-product {
   background-color: black;
   color: white;
   border: white solid 1px;
   margin-right: 10px;
-}
-
-.like-product{ 
-  background-color: white;
-  border: white solid 1px;
 }

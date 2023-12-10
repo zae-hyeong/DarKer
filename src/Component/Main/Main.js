@@ -62,14 +62,10 @@ const Main = (props) => {
     }),
   ];
 
-
-
   return (
     <main>
       <Banner />
-      <HomeProductList
-        productList={dummyProductList}
-        />
+      <HomeProductList productList={dummyProductList} />
       <HomeProductList
         productList={dummyProductList}
         onAddCart={props.onAddCart}

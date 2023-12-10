@@ -11,17 +11,14 @@ const HomeProductList = (props) => {
         <ProductItem
           key={props.productList[0].productId}
           product={props.productList[0]}
-          onAddCart={props.onAddCart}
         />
         <ProductItem
           key={props.productList[1].productId}
           product={props.productList[1]}
-          onAddCart={props.onAddCart}
         />
         <ProductItem
           key={props.productList[2].productId}
           product={props.productList[2]}
-          onAddCart={props.onAddCart}
         />
       </ol>
     </div>

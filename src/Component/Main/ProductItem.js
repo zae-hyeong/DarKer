@@ -3,6 +3,7 @@ import "./ProductItem.css";
 import cartIcon from "../../public/svg/cart-icon.svg";
 import { useDispatch } from "react-redux";
 import { nav_index, navActions } from "../../store/nav";
+import { cartAction } from "../../store/cart";
 
 const ProductItem = (props) => {
   const isDiscounted = true; //임시로 설정한 값
@@ -10,6 +11,7 @@ const ProductItem = (props) => {
   const product = props.product;
 
   const navDispatch = useDispatch();
+  const cartDispatch = useDispatch();
 
   const productItemClickHandler = () => {
     navDispatch(
@@ -22,7 +24,7 @@ const ProductItem = (props) => {
   };
 
   const addCartHandler = (e) => {
-    props.onAddCart(product);
+    cartDispatch(cartAction.addCart(product));
     e.stopPropagation();
   };
 

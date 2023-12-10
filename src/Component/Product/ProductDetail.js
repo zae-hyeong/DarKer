@@ -1,12 +1,16 @@
 import React from "react";
 import "./ProductDetail.css";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { cartAction } from "../../store/cart";
 
-const ProductDetail = (props) => {
+const ProductDetail = () => {
   const product = useSelector((state) => state.navControl.selectedProduct);
 
+  const cartDispatch = useDispatch();
+
   const addCartHandler = () => {
-    props.onAddCart(product);
+    cartDispatch(cartAction.addCart(product));
   };
 
   return (

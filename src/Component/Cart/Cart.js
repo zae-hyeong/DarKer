@@ -3,31 +3,31 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 import CartHeader from "./CartHeader";
 import CartFooter from "./CartFooter";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { navActions } from "../../store/nav";
 
-const Cart = (props) => {
+const Cart = () => {
   const navDispatch = useDispatch();
-  
+
   const deactiveHandler = () => {
     navDispatch(navActions.setAside());
   };
 
-  const isAsideActive = useSelector(state => state.navControl.isAsideActive);
+  const isAsideActive = useSelector((state) => state.navControl.isAsideActive);
 
-  const cartList = props.cartList;
+  const cartList = useSelector((state) => state.cartControl.cartList);
 
   let totalPrice = 0;
   for (let i = 0; i < cartList.length; i++) {
-    totalPrice += Number(cartList[i].productPrice) * Number(cartList[i].amount) + Number(cartList[i].deleveryFee)
+    totalPrice +=
+      Number(cartList[i].productPrice) * Number(cartList[i].amount) +
+      Number(cartList[i].deleveryFee);
   }
 
   return (
     <>
       <aside
-        className={
-          isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"
-        }
+        className={isAsideActive ? "cart-wrapper" : "cart-wrapper deactive"}
       >
         <CartHeader deactiveHandler={deactiveHandler} />
         <ol className="cart-product-list">
@@ -37,7 +37,7 @@ const Cart = (props) => {
             cartList.map((cartItem) => <CartItem cartItem={cartItem} />)
           )}
         </ol>
-        <CartFooter totalPrice={totalPrice}/>
+        <CartFooter totalPrice={totalPrice} />
       </aside>
       <div
         className={isAsideActive ? "aside-bg" : "aside-bg deactive"}

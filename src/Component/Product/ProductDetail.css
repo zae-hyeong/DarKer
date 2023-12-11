@@ -56,11 +56,11 @@
 .add-cart {
   background-color: white;
   border: white solid 1px;
+  margin-right: 10px;
 }
 
 .like-product {
   background-color: black;
   color: white;
   border: white solid 1px;
-  margin-right: 10px;
 }

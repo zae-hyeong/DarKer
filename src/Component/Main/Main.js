@@ -22,7 +22,7 @@ import b0img3 from "../../public/image/productExample3/peb0.jpg";
 import b1img3 from "../../public/image/productExample3/peb1.jpg";
 import b2img3 from "../../public/image/productExample3/peb2.jpg";
 
-const Main = (props) => {
+const Main = () => {
   const dummyProductList = [
     new Product({
       productId: "asdf1",
@@ -66,14 +66,8 @@ const Main = (props) => {
     <main>
       <Banner />
       <HomeProductList productList={dummyProductList} />
-      <HomeProductList
-        productList={dummyProductList}
-        onAddCart={props.onAddCart}
-      />
-      <HomeProductList
-        productList={dummyProductList}
-        onAddCart={props.onAddCart}
-      />
+      <HomeProductList productList={dummyProductList} />
+      <HomeProductList productList={dummyProductList} />
     </main>
   );
 };

@@ -11,16 +11,14 @@ const Signup = () => {
   const [phoneNumberInputValue, setPhoneNumberInputValue] = useState("");
 
   const emailRegex = new RegExp("^([A-Za-z]|[0-9])+$");
-  const phoneNumberRegex = new RegExp(
-    "/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/"
-  );
+  const phoneNumberRegex = new RegExp("(^01(0|1|6|7|8|9)-?([0-9]{3,4})-?([0-9]{4}))$");
 
   const emailInputHandler = (e) => {
     setEmailInputValue(e.target.value);
-    if (!emailRegex.test(e.target.value)) {
+    if (emailRegex.test(e.target.value) && e.target.value.length > 0) {
       e.target.className = e.target.className + " deactive";
     } else {
-      e.target.className = "";
+      e.target.className = undefined;
     }
   };
 
@@ -29,7 +27,7 @@ const Signup = () => {
     if (e.target.value.length <= 5 && e.target.value.length > 0) {
       e.target.className = e.target.className + " deactive";
     } else {
-      e.target.className = "";
+      e.target.className = undefined;
     }
   };
 
@@ -38,26 +36,29 @@ const Signup = () => {
     if (e.target.value.length <= 5 && e.target.value.length > 0) {
       e.target.className = e.target.className + " deactive";
     } else {
-      e.target.className = "";
+      e.target.className = undefined;
     }
   };
 
   const passwordConfirmInputHandler = (e) => {
     setPasswordConfirmInputValue(e.target.value);
-    if (e.target.value !== passwordInputValue) {
+    if (e.target.value !== passwordInputValue && e.target.value.length > 0) {
       e.target.className = e.target.className + " deactive";
     } else {
-      e.target.className = "";
+      e.target.className = undefined;
     }
   };
 
   const phoneNumberInputHandler = (e) => {
-    setPhoneNumberInputValue(e.target.value);
-    console.log(phoneNumberRegex.test(e.target.value));
-    if (!phoneNumberRegex.test(e.target.value)) {
+    setPhoneNumberInputValue(
+      e.target.value
+        .replace(/[^0-9]/g, "")
+        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)
+    );
+    if (!phoneNumberRegex.test(e.target.value) && e.target.value.length > 0) {
       e.target.className = e.target.className + " deactive";
     } else {
-      e.target.className = "";
+      e.target.className = undefined;
     }
   };
 
@@ -116,6 +117,7 @@ const Signup = () => {
             id="signup-phone-number-input"
             className="essential-input-element"
             type="text"
+            maxLength={13}
             placeholder="000-0000-0000"
             value={phoneNumberInputValue}
             onChange={phoneNumberInputHandler}

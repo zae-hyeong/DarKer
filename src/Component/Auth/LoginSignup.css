@@ -7,6 +7,13 @@
   align-items: center;
 }
 
+@media (max-height: 1000px) {
+  .login-wrapper,
+  .signup-wrapper {
+    height: calc(100vh - 80px - 200px);
+  }
+}
+
 #login-form,
 #signup-form {
   display: flex;
@@ -77,6 +84,7 @@
 .signup-input-wrapper {
   display: flex;
   width: 100%;
+  box-sizing: border-box;
 }
 .signup-input-wrapper > label {
   width: 27%;
@@ -86,6 +94,11 @@
 
 .signup-input-wrapper > input {
   width: 70%;
+  box-sizing: border-box;
+}
+
+.signup-input-wrapper > input.deactive {
+  border: red 6px solid;
 }
 
 .signup-input-wrapper > label::before {

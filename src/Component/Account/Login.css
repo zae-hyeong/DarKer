@@ -1,0 +1,41 @@
+#id-input,
+#pw-input {
+  width: 100%;
+  max-width: 500px;
+}
+
+#login-detail-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+#find-id::after {
+  content: "";
+  flex-grow: 1;
+  background-color: white;
+  height: 0.6rem;
+  width: 1px;
+  margin: 0px 10px;
+  display: inline-block;
+  line-height: 1rem;
+}
+
+#find-wrapper {
+  position: absolute;
+  right: 50%;
+  bottom: 0%;
+  transform: translateX(50%);
+  display: flex;
+}
+
+.signup {
+  float: left;
+}
+
+#save-id-wrapper {
+  float: right;
+}
+
+#id-input {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,46 @@
+.account-page-wrapper {
+  width: 100%;
+  height: calc(100vh - 80px - 400px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-height: 1000px) {
+  .account-page-wrapper {
+    height: calc(100vh - 80px - 200px);
+  }
+}
+
+.account-form-title-label {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-submit-button {
+  width: 100%;
+  padding: 10px 0px;
+  border-radius: 5px;
+  border: white solid 1px;
+  background-color: black;
+  color: white;
+  margin-top: 25px;
+}
+
+#login-form,
+#signup-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form > input,
+.signup-input-wrapper input {
+  width: 100%;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  margin-bottom: 0.8rem;
+}

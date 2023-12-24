@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import "./LoginSignup.css";
+import "./Account.css";
+import "./Signup.css";
 
 const Signup = () => {
   const [emailInputValue, setEmailInputValue] = useState("");
   const [idInputValue, setIdInputValue] = useState("");
   const [passwordInputValue, setPasswordInputValue] = useState("");
-  const [passwordConfirmInputValue, setPasswordConfirmInputValue] = useState("");
+  const [passwordConfirmInputValue, setPasswordConfirmInputValue] =
+    useState("");
   const [phoneNumberInputValue, setPhoneNumberInputValue] = useState("");
-  
+
   const emailRegex = new RegExp("^([A-Za-z]|[0-9])+$");
-  const phoneNumberRegex = new RegExp("/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/");
+  const phoneNumberRegex = new RegExp(
+    "/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/"
+  );
 
   const emailInputHandler = (e) => {
     setEmailInputValue(e.target.value);
@@ -56,11 +60,11 @@ const Signup = () => {
       e.target.className = "";
     }
   };
-  
+
   return (
-    <div className="signup-wrapper">
+    <div className="account-page-wrapper">
       <form id="signup-form" action="submit">
-        <label className="signup-form-label" htmlFor="signup-form">
+        <label className="account-form-title-label" htmlFor="signup-form">
           Signup
         </label>
         <div className="signup-input-wrapper">
@@ -127,6 +131,7 @@ const Signup = () => {
             <input id="user-agreements" type="checkbox"></input>
           </div>
         </div>
+        <button className="account-submit-button">회원가입</button>
       </form>
     </div>
   );

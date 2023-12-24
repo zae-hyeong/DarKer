@@ -1,0 +1,41 @@
+.signup-input-wrapper {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+.signup-input-wrapper > label {
+  width: 27%;
+  text-align: start;
+  margin-right: 3%;
+}
+
+.signup-input-wrapper > input.deactive {
+  border: red 6px solid;
+}
+
+.signup-input-wrapper > input {
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.signup-input-wrapper > label::before {
+  content: "·";
+  font-size: large;
+  color: red;
+  margin-right: 10%;
+}
+
+#signup-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 0.5rem;
+}
+
+#personal-info-agree-wrapper {
+margin-bottom: 0.3rem;
+}
+
+#signup-detail label {
+  margin-right: 0.4rem;
+}

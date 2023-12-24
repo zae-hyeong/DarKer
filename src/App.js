@@ -1,7 +1,7 @@
 import "./App.css";
 import Main from "./Component/Main/Main";
-import Login from "./Component/Auth/Login";
-import Signup from "./Component/Auth/Signup";
+import Login from "./Component/Account/Login";
+import Signup from "./Component/Account/Signup";
 import ProductDetail from "./Component/Product/ProductDetail";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Component/RootLayout";

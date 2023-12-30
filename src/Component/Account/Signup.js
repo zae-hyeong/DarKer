@@ -3,68 +3,87 @@ import "./Account.css";
 import "./Signup.css";
 
 const Signup = () => {
-  const [emailInputValue, setEmailInputValue] = useState("");
-  const [idInputValue, setIdInputValue] = useState("");
-  const [passwordInputValue, setPasswordInputValue] = useState("");
-  const [passwordConfirmInputValue, setPasswordConfirmInputValue] =
-    useState("");
-  const [phoneNumberInputValue, setPhoneNumberInputValue] = useState("");
+  const [signupInputValue, setSignupInputValue] = useState({
+    email: "",
+    id: "",
+    password: "",
+    confirmPassword: "",
+    phoneNumber: "",
+  });
+
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const emailRegex = new RegExp("^([A-Za-z]|[0-9])+$");
-  const phoneNumberRegex = new RegExp("(^01(0|1|6|7|8|9)-?([0-9]{3,4})-?([0-9]{4}))$");
+  const phoneNumberRegex = new RegExp(
+    "(^01(0|1|6|7|8|9)-?([0-9]{3,4})-?([0-9]{4}))$"
+  );
 
-  const emailInputHandler = (e) => {
-    setEmailInputValue(e.target.value);
-    if (emailRegex.test(e.target.value) && e.target.value.length > 0) {
-      e.target.className = e.target.className + " deactive";
+  const signupInputHandler = (e, identifier) => {
+    setSignupInputValue((prevVal) => ({
+      ...prevVal,
+      [identifier]: e.target.value,
+    }));
+
+    if (identifier === "phoneNumber") {
+      setSignupInputValue((prevVal) => ({
+        ...prevVal,
+        [identifier]: e.target.value
+          .replace(/[^0-9]/g, "")
+          .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`),
+      }));
+    }
+
+    if (e.target.value.length <= 0) {
+      e.target.className = e.target.classList.add("deactive");
     } else {
-      e.target.className = undefined;
+      e.target.classList.remove("deactive");
+    }
+
+    switch (identifier) {
+      case "email":
+        if (emailRegex.test(e.target.value)) {
+          e.target.classList.add("deactive");
+          setIsFormValid(true);
+        }
+        return;
+      case "id":
+      case "password":
+        if (e.target.value.length <= 5) {
+          e.target.classList.add("deactive");
+          setIsFormValid(true);
+        }
+        return;
+      case "passwordConfirm":
+        if (e.target.value !== signupInputValue.password) {
+          e.target.classList.add("deactive");
+          setIsFormValid(true);
+        }
+        return
+      case "phoneNumber":
+        if (phoneNumberRegex.test(e.target.value)) {
+          e.target.classList.add("deactive");
+          setIsFormValid(true);
+        }
+        return;
+      default:
+        e.target.classList.remove("deactive");
+        setIsFormValid(true);
     }
   };
 
-  const idInputHandler = (e) => {
-    setIdInputValue(e.target.value);
-    if (e.target.value.length <= 5 && e.target.value.length > 0) {
-      e.target.className = e.target.className + " deactive";
-    } else {
-      e.target.className = undefined;
-    }
-  };
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
 
-  const passwordInputHandler = (e) => {
-    setPasswordInputValue(e.target.value);
-    if (e.target.value.length <= 5 && e.target.value.length > 0) {
-      e.target.className = e.target.className + " deactive";
+    if (isFormValid) {
+      //TODO: form 제출
     } else {
-      e.target.className = undefined;
+      alert('Form Not Valid');
     }
-  };
-
-  const passwordConfirmInputHandler = (e) => {
-    setPasswordConfirmInputValue(e.target.value);
-    if (e.target.value !== passwordInputValue && e.target.value.length > 0) {
-      e.target.className = e.target.className + " deactive";
-    } else {
-      e.target.className = undefined;
-    }
-  };
-
-  const phoneNumberInputHandler = (e) => {
-    setPhoneNumberInputValue(
-      e.target.value
-        .replace(/[^0-9]/g, "")
-        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)
-    );
-    if (!phoneNumberRegex.test(e.target.value) && e.target.value.length > 0) {
-      e.target.className = e.target.className + " deactive";
-    } else {
-      e.target.className = undefined;
-    }
-  };
+  }
 
   return (
     <div className="account-page-wrapper">
-      <form id="signup-form" action="submit">
+      <form id="signup-form" action="submit" onSubmit={formSubmitHandler}>
         <label className="account-form-title-label" htmlFor="signup-form">
           Signup
         </label>
@@ -74,8 +93,10 @@ const Signup = () => {
             id="email-input"
             type="text"
             placeholder="이메일"
-            value={emailInputValue}
-            onChange={emailInputHandler}
+            value={signupInputValue.email}
+            onChange={(event) => {
+              signupInputHandler(event, "email");
+            }}
           />
         </div>
         <div className="signup-input-wrapper">
@@ -85,8 +106,10 @@ const Signup = () => {
             className="essential-input-element"
             type="text"
             placeholder="아이디"
-            value={idInputValue}
-            onChange={idInputHandler}
+            value={signupInputValue.id}
+            onChange={(event) => {
+              signupInputHandler(event, "id");
+            }}
           />
         </div>
         <div className="signup-input-wrapper">
@@ -96,8 +119,10 @@ const Signup = () => {
             className="essential-input-element"
             type="password"
             placeholder="비밀번호"
-            value={passwordInputValue}
-            onChange={passwordInputHandler}
+            value={signupInputValue.password}
+            onChange={(event) => {
+              signupInputHandler(event, "password");
+            }}
           />
         </div>
         <div className="signup-input-wrapper">
@@ -107,8 +132,10 @@ const Signup = () => {
             className="essential-input-element"
             type="password"
             placeholder="비밀번호 확인"
-            value={passwordConfirmInputValue}
-            onChange={passwordConfirmInputHandler}
+            value={signupInputValue.passwordConfirm}
+            onChange={(event) => {
+              signupInputHandler(event, "passwordConfirm");
+            }}
           />
         </div>
         <div className="signup-input-wrapper">
@@ -119,8 +146,10 @@ const Signup = () => {
             type="text"
             maxLength={13}
             placeholder="000-0000-0000"
-            value={phoneNumberInputValue}
-            onChange={phoneNumberInputHandler}
+            value={signupInputValue.phoneNumber}
+            onChange={(event) => {
+              signupInputHandler(event, "phoneNumber");
+            }}
           />
         </div>
         <div id="signup-detail">

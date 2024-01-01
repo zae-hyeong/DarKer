@@ -22,9 +22,9 @@ const Login = () => {
           Login
         </label>
         <input
-          id="id-input"
+          id="email-input"
           type="text"
-          placeholder="아이디"
+          placeholder="이메일"
           value={idInputValue}
           onChange={idChangeHandler}
         />

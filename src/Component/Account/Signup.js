@@ -5,7 +5,6 @@ import "./Signup.css";
 const Signup = () => {
   const [signupInputValue, setSignupInputValue] = useState({
     email: "",
-    id: "",
     password: "",
     confirmPassword: "",
     phoneNumber: "",
@@ -24,15 +23,6 @@ const Signup = () => {
       [identifier]: e.target.value,
     }));
 
-    if (identifier === "phoneNumber") {
-      setSignupInputValue((prevVal) => ({
-        ...prevVal,
-        [identifier]: e.target.value
-          .replace(/[^0-9]/g, "")
-          .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`),
-      }));
-    }
-
     if (e.target.value.length <= 0) {
       e.target.className = e.target.classList.add("deactive");
     } else {
@@ -43,26 +33,36 @@ const Signup = () => {
       case "email":
         if (emailRegex.test(e.target.value)) {
           e.target.classList.add("deactive");
-          setIsFormValid(true);
+          setIsFormValid(false);
         }
         return;
       case "id":
       case "password":
         if (e.target.value.length <= 5) {
           e.target.classList.add("deactive");
-          setIsFormValid(true);
+          setIsFormValid(false);
         }
         return;
       case "passwordConfirm":
         if (e.target.value !== signupInputValue.password) {
           e.target.classList.add("deactive");
-          setIsFormValid(true);
+          setIsFormValid(false);
         }
         return
       case "phoneNumber":
-        if (phoneNumberRegex.test(e.target.value)) {
+        setSignupInputValue((prevVal) => ({
+          ...prevVal,
+          [identifier]: e.target.value
+            .replace(/[^0-9]/g, "")
+            .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`),
+        }));
+
+        console.log(signupInputValue.phoneNumber);
+        console.log(phoneNumberRegex.test(e.target.value));
+
+        if (!phoneNumberRegex.test(e.target.value)) {
           e.target.classList.add("deactive");
-          setIsFormValid(true);
+          setIsFormValid(false);
         }
         return;
       default:
@@ -97,19 +97,7 @@ const Signup = () => {
             onChange={(event) => {
               signupInputHandler(event, "email");
             }}
-          />
-        </div>
-        <div className="signup-input-wrapper">
-          <label htmlFor="signup-id-input">아이디</label>
-          <input
-            id="signup-id-input"
-            className="essential-input-element"
-            type="text"
-            placeholder="아이디"
-            value={signupInputValue.id}
-            onChange={(event) => {
-              signupInputHandler(event, "id");
-            }}
+            required
           />
         </div>
         <div className="signup-input-wrapper">
@@ -123,6 +111,8 @@ const Signup = () => {
             onChange={(event) => {
               signupInputHandler(event, "password");
             }}
+            minLength={6}
+            required
           />
         </div>
         <div className="signup-input-wrapper">
@@ -136,6 +126,7 @@ const Signup = () => {
             onChange={(event) => {
               signupInputHandler(event, "passwordConfirm");
             }}
+            required
           />
         </div>
         <div className="signup-input-wrapper">
@@ -144,22 +135,22 @@ const Signup = () => {
             id="signup-phone-number-input"
             className="essential-input-element"
             type="text"
-            maxLength={13}
             placeholder="000-0000-0000"
             value={signupInputValue.phoneNumber}
             onChange={(event) => {
               signupInputHandler(event, "phoneNumber");
             }}
+            required
           />
         </div>
         <div id="signup-detail">
           <div id="personal-info-agree-wrapper">
             <label htmlFor="personal-info-agree">개인정보처리방침 동의</label>
-            <input id="personal-info-agree" type="checkbox"></input>
+            <input id="personal-info-agree" type="checkbox" required></input>
           </div>
           <div id="user-agreements-wrapper">
             <label htmlFor="user-agreements">이용약관 동의</label>
-            <input id="user-agreements" type="checkbox"></input>
+            <input id="user-agreements" type="checkbox" required></input>
           </div>
         </div>
         <button className="account-submit-button">회원가입</button>

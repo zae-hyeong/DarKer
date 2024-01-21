@@ -21,8 +21,8 @@
   float: left;
 }
 
-.header-menu-button > svg {
-  width: 32px;
+.header-menu-button > object {
+  width: 28px;
   height: 32px;
 }
 

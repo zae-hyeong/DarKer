@@ -4,6 +4,7 @@ import { navActions } from "../../store/nav";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logoImg from "../../public/image/logo.png";
+import menuBtn from "../../public/svg/hamburger-button.svg";
 
 const Header = () => {
   const navDispatch = useDispatch();
@@ -15,17 +16,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-menu-button">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M5 7H19" stroke="white" strokeLinecap="round" />
-          <path d="M5 12H19" stroke="white" strokeLinecap="round" />
-          <path d="M5 17H19" stroke="white" strokeLinecap="round" />
-        </svg>
+        <object data={menuBtn} type="image/svg+xml">header menu button</object>
       </div>
       <div className="header-logo-wrapper">
         <Link at="">
